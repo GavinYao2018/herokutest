@@ -16,17 +16,24 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>com.netflix.feign</groupId>
-			<artifactId>feign-core</artifactId>
-			<version>8.18.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.netflix.feign</groupId>
-			<artifactId>feign-jackson</artifactId>
-			<version>8.18.0</version>
-		</dependency> 
-		-->
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- Build an executable JAR -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>yao.test.app.App</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
