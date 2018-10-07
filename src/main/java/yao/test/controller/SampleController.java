@@ -11,20 +11,20 @@ import yao.test.remote.Test;
 
 @Controller
 public class SampleController {
-	
+
 	@RequestMapping("/hello")
-    @ResponseBody
-    public String home() {
-        return "Hello World!";
-    }
-	
+	@ResponseBody
+	public String home() {
+		return "Hello World!" + System.currentTimeMillis();
+	}
+
 	@RequestMapping("/login")
-    @ResponseBody
+	@ResponseBody
 	public String loginPage() {
 		Test service = Feign.builder()
-				//.encoder(new JacksonEncoder())
-                //.decoder(new JacksonDecoder())
-                .target(Test.class, "http://121.11.161.36:8082");
+				// .encoder(new JacksonEncoder())
+				// .decoder(new JacksonDecoder())
+				.target(Test.class, "http://121.11.161.36:8082");
 		return service.getLoginPage("张三");
 	}
 }
