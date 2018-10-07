@@ -10,7 +10,7 @@ public class SampleController {
 	@RequestMapping("/hello")
 	@ResponseBody
 	public String home() {
-		return "Hello World!" + System.currentTimeMillis();
+		return "Hello yao! " + System.currentTimeMillis();
 	}
 
 //	@RequestMapping("/login")
